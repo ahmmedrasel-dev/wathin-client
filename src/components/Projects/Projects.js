@@ -23,7 +23,7 @@ const Projects = () => {
   return (
     <div className='py-20'>
       <div className='text-center pb-12'>
-        <p className='uppercase text-2xl font-semibold'>Our <span className='text-error'>Projects</span></p>
+        <p className='uppercase text-3xl font-semibold'>Our <span className='text-error'>Projects</span></p>
       </div>
 
       <Slider {...settings}>

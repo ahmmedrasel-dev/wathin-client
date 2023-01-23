@@ -5,7 +5,7 @@ const Service = ({ service }) => {
   return (
     <div>
       <div className='flex justify-center'>
-        <div className="icon bg-base-100 hover:bg-secondary duration-500">
+        <div className="icon bg-base-200 hover:bg-secondary duration-500">
           <img src={service_thumbnail} alt="Shoes" />
         </div>
       </div>
