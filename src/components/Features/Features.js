@@ -4,13 +4,14 @@ import Feature from './Feature';
 const Features = () => {
   const [features, setFeatures] = useState([]);
 
+
   useEffect(() => {
     fetch('features.json')
       .then(res => res.json())
       .then(data => setFeatures(data))
   }, [])
   return (
-    <div className='p-20'>
+    <div className='p-8 lg:p-20'>
       <div className='text-center pb-12'>
         <p className='uppercase text-md'>WHAT WE DO</p>
         <h2 className='text-4xl font-medium'>We build strong brands and grow businesses through branded <br /> services, <span className='text-error'>digital storytelling.</span></h2>

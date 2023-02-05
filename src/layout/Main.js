@@ -6,8 +6,9 @@ import Navbar from '../pages/Shared/Navbar';
 const Main = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Outlet></Outlet>
+      <Navbar>
+        <Outlet></Outlet>
+      </Navbar>
       <Footer></Footer>
     </div>
   );

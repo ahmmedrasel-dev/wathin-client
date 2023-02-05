@@ -18,22 +18,22 @@ const HomeSlider = () => {
   return (
     <>
       <Slider {...settings}>
-        <div className='w-full relative h-[540px]'>
-          <div className='absolute z-50 inset-y-1/3 left-20 w-2/4'>
-            <p className='text-lg uppercase'>lorem impsum dol amet</p>
-            <h1 className='text-7xl text-base-100'>Hell this is first Slide.</h1>
-            <p className='py-4 text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod dicta aliquid iure doloribus incidunt architecto praesentium quos cupiditate fugiat quia.</p>
-            <button className='btn btn-primary'> Explore More</button>
+        <div className='lg:relative lg:h-[520px] h-auto'>
+          <div className='absolute z-50 lg:inset-y-1/3 lg:left-20 lg:w-2/4 w-full left-[20px] top-[20px]'>
+            <p data-aos="fade-down" data-aos-delay="500" className='text-sm lg:text-lg uppercase'>lorem impsum dol amet</p>
+            <h1 data-aos="fade-right" data-aos-delay="700" className='text-xl lg:text-7xl text-base-100'>Hell this is first Slide.</h1>
+            <p data-aos="zoom-in" data-aos-delay="900" className='lg:py-4 hidden lg:block lg:text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod dicta aliquid iure doloribus incidunt architecto praesentium quos cupiditate fugiat quia.</p>
+            <button data-aos="fade-left" data-aos-delay="900" className='btn btn-primary btn-sm lg:btn-lg'> Explore More</button>
           </div>
 
-          <img className='w-full' src={slider2} alt="" />
+          <img className='w-full' src={slider2} alt="Slider-1" />
         </div>
-        <div className='w-full relative h-[540px]'>
-          <div className='absolute z-50 inset-y-1/3 left-20 w-2/4'>
-            <p className='text-lg'>lorem impsum dol amet</p>
-            <h1 className='text-7xl text-base-100'>Hell this is first Slide.</h1>
-            <p className='py-4 text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod dicta aliquid iure doloribus incidunt architecto praesentium quos cupiditate fugiat quia.</p>
-            <button className='btn btn-primary'> Explore More</button>
+        <div className='lg:relative lg:h-[520px] h-auto'>
+          <div className='absolute z-50 lg:inset-y-1/3 lg:left-20 lg:w-2/4 w-full left-[20px] top-[20px]'>
+            <p className='text-sm lg:text-lg uppercase'>lorem impsum dol amet</p>
+            <h1 className='text-xl lg:text-7xl text-base-100'>Hell this is first Slide.</h1>
+            <p className='lg:py-4 hidden lg:block lg:text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod dicta aliquid iure doloribus incidunt architecto praesentium quos cupiditate fugiat quia.</p>
+            <button className='btn btn-primary btn-sm lg:btn-lg'> Explore More</button>
           </div>
           <img className='w-full' src={slider3} alt="" />
         </div>

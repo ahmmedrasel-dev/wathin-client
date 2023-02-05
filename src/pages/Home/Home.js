@@ -1,5 +1,4 @@
 import React from 'react';
-import ScrollToTop from 'react-scroll-up';
 import Blogs from '../../components/Blogs/Blogs';
 import Features from '../../components/Features/Features';
 import Projects from '../../components/Projects/Projects';
@@ -8,12 +7,10 @@ import HomeSlider from '../../components/Slider/HomeSlider';
 
 const Home = () => {
   return (
-    <div className=''>
+    <div>
       <HomeSlider></HomeSlider>
       <Features></Features>
-      <ScrollToTop showUnder={160} duration={1000}>
-        <span className="bg-primary p-4 text-white rounded-md">Top</span>
-      </ScrollToTop>
+
       <Services></Services>
       <Projects></Projects>
       <Blogs></Blogs>

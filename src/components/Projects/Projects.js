@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
 import Project from './Project';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from "swiper";
+import './project.css'
+import 'swiper/css';
+import "swiper/css/pagination";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
 
   useEffect(() => {
     fetch('projects.json')
@@ -26,15 +21,29 @@ const Projects = () => {
         <p className='uppercase text-3xl font-semibold'>Our <span className='text-error'>Projects</span></p>
       </div>
 
-      <Slider {...settings}>
+      <Swiper
+        slidesPerView={3}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination]}
+        className="my_project_slider"
+      >
         {
-          projects.map(project => <Project
-            key={project._id}
-            project={project}
-          ></Project>)
+          projects.map(project => (
+            <SwiperSlide>
+              <Project
+                key={project._id}
+                project={project}
+              ></Project>
+            </SwiperSlide>
+          ))
         }
-
-      </Slider>
+      </Swiper>
 
     </div>
   );

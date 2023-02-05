@@ -1,0 +1,76 @@
+.project_main {
+	position: relative;
+	height: 500px;
+	z-index: 1;
+	background-position: 50%;
+}
+.project_main::before {
+	width: 100%;
+	height: 100%;
+	content: "";
+	position: absolute;
+	background-color: coral;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(0);
+	z-index: -1;
+	transition: all linear 0.3s;
+}
+
+.project_main:hover::before {
+	opacity: 1;
+	transform: scale(1);
+	visibility: visible;
+}
+
+.project-details {
+	opacity: 0;
+	visibility: hidden;
+	padding: 60px;
+	transition: all linear 0.3s;
+}
+
+.project_main:hover .project-details {
+	opacity: 1;
+	visibility: visible;
+}
+
+.title {
+	position: relative;
+}
+
+.title::before {
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	content: "";
+	height: 2px;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+.my_project_slider {
+	width: 100%;
+	height: 75vh;
+	margin: 0 auto;
+}
+
+.my_project_slider .swiper-slide {
+	width: 100%;
+	height: 47vh !important;
+}
+
+.my_project_slider .swiper-pagination-bullet {
+	width: 50px !important;
+	height: 5px !important;
+	background: lightgray !important;
+	border-radius: 10px !important;
+	color: var(--pure) !important;
+	opacity: 1 !important;
+}
+.my_project_slider .swiper-pagination-bullet-active {
+	width: 100px !important;
+	background-color: coral !important;
+}
