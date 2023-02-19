@@ -5,12 +5,12 @@ import Projects from '../../components/Projects/Projects';
 import Services from '../../components/services/Services';
 import HomeSlider from '../../components/Slider/HomeSlider';
 
+
 const Home = () => {
   return (
     <div>
       <HomeSlider></HomeSlider>
       <Features></Features>
-
       <Services></Services>
       <Projects></Projects>
       <Blogs></Blogs>

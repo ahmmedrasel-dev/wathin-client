@@ -1,8 +1,11 @@
 .project_main {
 	position: relative;
 	height: 500px;
+	width: 100%;
 	z-index: 1;
 	background-position: 50%;
+	margin-bottom: 100px;
+	overflow: hidden;
 }
 .project_main::before {
 	width: 100%;
@@ -16,7 +19,7 @@
 	visibility: hidden;
 	transform: scale(0);
 	z-index: -1;
-	transition: all linear 0.3s;
+	transition: all 0.3s ease-in-out;
 }
 
 .project_main:hover::before {
@@ -29,7 +32,7 @@
 	opacity: 0;
 	visibility: hidden;
 	padding: 60px;
-	transition: all linear 0.3s;
+	transition: all 0.5s ease-in-out;
 }
 
 .project_main:hover .project-details {
@@ -73,4 +76,33 @@
 .my_project_slider .swiper-pagination-bullet-active {
 	width: 100px !important;
 	background-color: coral !important;
+}
+
+.swiper-button-next.slide_next_btn::after,
+.swiper-button-prev.slide_prev_btn::after {
+	content: none;
+}
+
+.slide_next_btn {
+	right: calc(46%);
+	top: calc(90%);
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+.slide_prev_btn {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	left: calc(46%);
+	top: calc(90%);
+}
+
+@media (max-width: 574px) {
+	.slide_next_btn {
+		right: calc(37%);
+	}
+	.slide_prev_btn {
+		left: calc(37%);
+	}
 }

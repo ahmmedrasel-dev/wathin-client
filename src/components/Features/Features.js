@@ -16,7 +16,7 @@ const Features = () => {
         <p className='uppercase text-md'>WHAT WE DO</p>
         <h2 className='text-4xl font-medium'>We build strong brands and grow businesses through branded <br /> services, <span className='text-error'>digital storytelling.</span></h2>
       </div>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">
         {
           features.map(feature => <Feature
             key={feature._id}

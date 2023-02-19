@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaCaretRight } from 'react-icons/fa';
 
 const Blog = ({ blog }) => {
-  const { title, date, blog_thumbnail, blog_details, author } = blog;
+  const { title, date, blog_thumbnail, blog_details, author, slug } = blog;
   const postDate = new Date(date);
   let day = (postDate.getDate().toString().length < 2 ? "0" + postDate.getDate().toString() : postDate.getDate());
   let month = postDate.toLocaleString('en-US', { month: 'short' })
@@ -26,7 +26,7 @@ const Blog = ({ blog }) => {
       </div>
       <div className='flex items-center pl-2'>
         <FaCaretRight className='text-error text-xl' />
-        <NavLink className="text-error uppercase" to="/">Read More</NavLink>
+        <NavLink className="text-error uppercase" to={`/news/${slug}`}>Read More</NavLink>
       </div>
     </div>
   );

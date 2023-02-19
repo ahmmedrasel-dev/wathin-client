@@ -3,7 +3,7 @@ import './service.css';
 const Service = ({ service }) => {
   const { title, description, service_thumbnail } = service;
   return (
-    <div>
+    <>
       <div className='flex justify-center'>
         <div className="icon bg-base-200 hover:bg-secondary duration-500">
           <img src={service_thumbnail} alt="Shoes" />
@@ -15,7 +15,7 @@ const Service = ({ service }) => {
         </h2>
         <p>{description}</p>
       </div>
-    </div>
+    </>
   );
 };
 

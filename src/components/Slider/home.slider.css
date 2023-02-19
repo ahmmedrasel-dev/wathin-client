@@ -1,0 +1,24 @@
+.home_slider {
+	width: 100%;
+	height: 600px;
+	margin: 0 auto;
+}
+
+.home_slider .swiper-pagination-bullet {
+	width: 50px !important;
+	height: 5px !important;
+	background: lightgray !important;
+	border-radius: 10px !important;
+	color: var(--pure) !important;
+	opacity: 1 !important;
+}
+.home_slider .swiper-pagination-bullet-active {
+	width: 100px !important;
+	background-color: coral !important;
+}
+
+@media (max-width: 767px) {
+	.home_slider {
+		height: 350px;
+	}
+}
