@@ -8,13 +8,13 @@ import HomeSlider from '../../components/Slider/HomeSlider';
 
 const Home = () => {
   return (
-    <div>
+    <main>
       <HomeSlider></HomeSlider>
       <Features></Features>
       <Services></Services>
       <Projects></Projects>
       <Blogs></Blogs>
-    </div>
+    </main>
   );
 };
 

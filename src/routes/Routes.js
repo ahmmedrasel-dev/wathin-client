@@ -12,9 +12,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        loader: async () => {
-          return fetch('blog.json');
-        },
+        loader: async () => fetch('http://localhost:5000/news'),
         element: <Home></Home>
       },
       {
@@ -23,19 +21,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/news',
-        loader: async () => {
-          return fetch('blog.json');
-        },
+        loader: async () => fetch('http://localhost:5000/news'),
         element: <Blogs></Blogs>,
-        children: [
-          {
-            path: ':slug',
-            loader: async ({ params }) => {
-              return fetch('blog.json')
-            },
-            element: <BlogDetails></BlogDetails>
-          }
-        ]
+      },
+      {
+        path: '/news/:slug',
+        loader: async ({ params }) => fetch(`http://localhost:5000/news/${params.slug}`),
+        element: <BlogDetails></BlogDetails>
       }
     ]
   }
