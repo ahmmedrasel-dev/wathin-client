@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        loader: async () => fetch('http://localhost:5000/news'),
+        loader: async () => fetch('https://wathin-server.vercel.app/news'),
         element: <Home></Home>
       },
       {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/news',
-        loader: async () => fetch('http://localhost:5000/news'),
+        loader: async () => fetch('https://wathin-server.vercel.app/news'),
         element: <Blogs></Blogs>,
       },
       {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/news/:slug',
-        loader: async ({ params }) => fetch(`http://localhost:5000/news/${params.slug}`),
+        loader: async ({ params }) => fetch(`https://wathin-server.vercel.app/news/${params.slug}`),
         element: <BlogDetails></BlogDetails>
       },
       {
