@@ -6,7 +6,7 @@ import { SwiperSlide } from 'swiper/react';
 const Services = () => {
 
   return (
-    <div className='grid lg:grid-cols-3 grid-cols-1 gap-4 px-20 py-20 bg-base-300'>
+    <div className='grid lg:grid-cols-3 grid-cols-1 gap-4 lg:px-20 lg:py-20 p-4 bg-gray-300'>
       {
         data.map(service => (
           <SwiperSlide><Service

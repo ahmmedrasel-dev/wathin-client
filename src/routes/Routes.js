@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blogs from "../components/Blogs/Blogs";
+import Features from "../components/Features/Features";
+import Projects from "../components/Projects/Projects";
+import Services from "../components/services/Services";
 import Main from "../layout/Main";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import Home from "../pages/Home/Home";
@@ -25,9 +28,21 @@ const router = createBrowserRouter([
         element: <Blogs></Blogs>,
       },
       {
+        path: '/about',
+        element: <Features></Features>,
+      },
+      {
+        path: '/services',
+        element: <Services />,
+      },
+      {
         path: '/news/:slug',
         loader: async ({ params }) => fetch(`http://localhost:5000/news/${params.slug}`),
         element: <BlogDetails></BlogDetails>
+      },
+      {
+        path: '/projects',
+        element: <Projects></Projects>
       }
     ]
   }
