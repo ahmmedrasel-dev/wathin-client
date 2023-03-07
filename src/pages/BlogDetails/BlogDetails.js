@@ -5,14 +5,14 @@ const BlogDetails = () => {
   const news = useLoaderData();
   const { title, blog_thumbnail, date, author, blog_details } = news
   return (
-    <section className='bg-base-200'>
-      <div className='flex justify-between lg:px-20 lg:py-10 bg-base-300'>
-        <h2 className='text-black text-2xl'>News</h2>
+    <section className='bg-white'>
+      <div className='flex justify-between lg:px-20 lg:py-10 bg-slate-300'>
+        <h2 className='text-secondary text-2xl'>News</h2>
 
         <div className="text-sm breadcrumbs">
           <ul>
-            <li><a href='/'>Home</a></li>
-            <li><a href='/news'>News</a></li>
+            <li className='text-secondary'><a href='/'>Home</a></li>
+            <li className='text-secondary'><a href='/news'>News</a></li>
           </ul>
         </div>
       </div>
@@ -25,7 +25,7 @@ const BlogDetails = () => {
             </div>
             <div className='py-4'>
               <h1 className='text-3xl font-semibold'>{title}</h1>
-              <small>{author}</small>
+              <small className='text-primary'>{author}</small>
             </div>
             <div className='mt-4'>
               <p>{blog_details}</p>
@@ -33,7 +33,7 @@ const BlogDetails = () => {
           </div>
 
           <div className="md:w-[25%]">
-            <h2 className='text-2xl uppercase'>Latest News</h2>
+            <h2 className='text-2xl uppercase text-primary'>Latest News</h2>
 
             <div className='flex justify-start gap-6 py-6'>
               <div className='bg-base-100 p-1 rounded-md'>

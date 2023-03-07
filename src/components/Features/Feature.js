@@ -6,7 +6,7 @@ const Feature = ({ feature }) => {
     <div>
       <img src={feature_thumbnail} className="h-52" alt="Shoes" />
       <div className="text-center p-4">
-        <h2 className="text-center text-xl font-semibold">
+        <h2 className="text-center text-xl font-semibold text-primary">
           {title}
         </h2>
         <p>{description}</p>

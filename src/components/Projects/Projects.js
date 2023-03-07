@@ -18,7 +18,7 @@ const Projects = () => {
   return (
     <div className='pt-20 pb-6 lg:px-0 px-4'>
       <div className='text-center pb-12'>
-        <p className='uppercase text-3xl font-semibold'>Our <span className='text-error'>Projects</span></p>
+        <p className='uppercase text-3xl font-semibold'>Our <span className='text-[#42afef]'>Projects</span></p>
       </div>
 
       <Swiper
@@ -55,8 +55,8 @@ const Projects = () => {
           ))
         }
 
-        <div className='swiper-button-next slide_next_btn bg-gray-900'><FaAngleRight className='text-white flex justify-center items-center hover:text-primary text-2xl duration-200' /></div>
-        <div className='swiper-button-prev slide_prev_btn bg-gray-900'><FaAngleLeft className='text-white hover:text-primary text-2xl duration-200 ' /></div>
+        <div className='swiper-button-next slide_next_btn bg-secondary'><FaAngleRight className='text-white flex justify-center items-center hover:text-primary text-2xl duration-200' /></div>
+        <div className='swiper-button-prev slide_prev_btn bg-secondary'><FaAngleLeft className='text-white hover:text-primary text-2xl duration-200 ' /></div>
       </Swiper>
 
     </div>

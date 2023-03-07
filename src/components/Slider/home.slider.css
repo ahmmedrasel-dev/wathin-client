@@ -14,7 +14,7 @@
 }
 .home_slider .swiper-pagination-bullet-active {
 	width: 100px !important;
-	background-color: coral !important;
+	background-color: #42afef !important;
 }
 
 @media (max-width: 767px) {

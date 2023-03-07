@@ -12,7 +12,7 @@
 	height: 100%;
 	content: "";
 	position: absolute;
-	background-color: coral;
+	background-color: #42afef;
 	top: 0;
 	left: 0;
 	opacity: 0;
@@ -75,7 +75,7 @@
 }
 .my_project_slider .swiper-pagination-bullet-active {
 	width: 100px !important;
-	background-color: coral !important;
+	background-color: #42afef !important;
 }
 
 .swiper-button-next.slide_next_btn::after,
