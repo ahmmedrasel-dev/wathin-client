@@ -19,7 +19,6 @@ const Navbar = ({ isSticky }) => {
           </div>
           <div className="hidden xl:flex">
             <div className='menu menu-horizontal px-1'>
-
               <Navlinks />
             </div>
           </div>

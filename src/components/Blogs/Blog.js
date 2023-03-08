@@ -18,7 +18,7 @@ const Blog = ({ blog }) => {
         </div>
       </div>
       <div className="p-4">
-        <small>{author}</small>
+        <small className='text-primary'>{author}</small>
         <h2 className="text-xl font-semibold mb-2 text-secondary">
           {title}
         </h2>

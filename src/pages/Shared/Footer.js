@@ -26,7 +26,7 @@ const Footer = () => {
           <NavLink to='/' className='rounded-lg'>Services</NavLink>
         </div>
         <div>
-          <span className="text-lg font-bold uppercase text-secondary">Legal</span>
+          <span className="text-lg font-bold text-secondary">Legal</span>
           <NavLink to='/' className='rounded-lg'>Terms of use</NavLink>
           <NavLink to='/' className='rounded-lg'>Privacy policy</NavLink>
           <NavLink to='/' className='rounded-lg'>Cookie policy</NavLink>
