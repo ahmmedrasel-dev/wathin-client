@@ -24,13 +24,11 @@ const Navlinks = () => {
       <li><NavLink to='/news' className='rounded-lg text-[#11374d] mx-2'>News</NavLink></li>
       <li><NavLink to='/contact' className='rounded-lg text-[#11374d]'>Contact Us</NavLink></li>
       {
-        user.email && <li><span>{user.email}</span></li>
+        user?.email && <li><span>{user.email}</span></li>
       }
       {
-        user ?
+        user?.email ?
           <>
-
-
             <li><button className='btn btn-error rounded-lg text-white ml-2 border-0' onClick={handleSignOut}>Sign Out</button></li>
           </>
           :
