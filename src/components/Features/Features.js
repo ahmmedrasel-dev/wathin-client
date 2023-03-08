@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../hooks/useTitle';
 import Feature from './Feature';
 
 const Features = () => {
   const [features, setFeatures] = useState([]);
-
+  useTitle('Features');
   useEffect(() => {
     fetch('features.json')
       .then(res => res.json())

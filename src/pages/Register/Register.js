@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
   const navigate = useNavigate();
+  useTitle('Register')
   const { createUser } = useContext(AuthContext)
   const handleSubmit = e => {
     e.preventDefault();

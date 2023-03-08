@@ -2,9 +2,10 @@ import React from 'react';
 import Service from './Service';
 import data from '../../data/services';
 import { SwiperSlide } from 'swiper/react';
+import useTitle from '../../hooks/useTitle';
 
 const Services = () => {
-
+  useTitle('Services')
   return (
     <div className='grid lg:grid-cols-3 grid-cols-1 gap-4 lg:px-20 lg:py-20 p-4 bg-slate-300'>
       {

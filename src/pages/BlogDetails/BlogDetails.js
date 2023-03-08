@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const BlogDetails = () => {
   const news = useLoaderData();
+  useTitle('News Details')
   const { title, blog_thumbnail, date, author, blog_details } = news
   return (
     <section className='bg-white'>

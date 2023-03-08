@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
@@ -8,7 +9,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
-
+  useTitle('Login')
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;

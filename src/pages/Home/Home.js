@@ -4,9 +4,12 @@ import Features from '../../components/Features/Features';
 import Projects from '../../components/Projects/Projects';
 import Services from '../../components/services/Services';
 import HomeSlider from '../../components/Slider/HomeSlider';
+import useTitle from '../../hooks/useTitle';
 
 
 const Home = () => {
+  useTitle('Home')
+
   return (
     <main>
       <HomeSlider></HomeSlider>

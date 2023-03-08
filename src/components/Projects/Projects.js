@@ -6,9 +6,10 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import 'swiper/css/navigation';
 import 'swiper/css';
 import './project.css'
+import useTitle from '../../hooks/useTitle';
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-
+  useTitle('Projects')
   useEffect(() => {
     fetch('projects.json')
       .then(res => res.json())

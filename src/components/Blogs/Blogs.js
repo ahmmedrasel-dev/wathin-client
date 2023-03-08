@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import Blog from './Blog';
 
 const Blogs = () => {
   const blogs = useLoaderData();
+  useTitle('News');
   return (
     <div className='lg:p-20 p-4 bg-slate-50'>
       <div className='text-center pb-12'>
