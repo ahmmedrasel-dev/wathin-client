@@ -6,6 +6,7 @@ import Services from "../components/services/Services";
 import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
+import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <Features></Features>,
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>,
       },
       {
         path: '/services',
