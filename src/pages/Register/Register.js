@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/UserContext';
 import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
   const navigate = useNavigate();
   useTitle('Register')
-  const { createUser } = useContext(AuthContext)
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -14,23 +13,31 @@ const Register = () => {
     const password = form.password.value;
     const name = form.name.value;
 
-    createUser(email, password)
-      .then(result => {
-        const user = result.user;
-        console.log('Register User', user)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    const postUserDate = async () => {
+      try {
+        const response = await axios.post('http://localhost:5000/api/register', {
+          name, email, password
+        })
+        form.reset();
+        if (response.status === 200) {
+          toast.success(response.data.message);
+          navigate('/login')
+        }
+
+      } catch (error) {
+
+      }
+    }
+    postUserDate();
+
   }
   return (
     <>
       <div className="hero bg-slate-200 py-8">
         <div className="hero-content flex-col">
           <h1 className='text-2xl uppercase'>Please Register Now</h1>
-
           <div className="card shadow-2xl bg-slate-100">
-            <form onSubmit={handleSubmit} className="card-body w-[500px]">
+            <form onSubmit={handleSubmit} className="card-body lg:w-[500px] w-full">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -54,7 +61,7 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary" type='submit'>Register</button>
               </div>
-              <p>Already Have an Account? <span className='text-primary cursor-pointer' onClick={() => navigate('/register')}>Please Login</span></p>
+              <p>Already Have an Account? <span className='text-primary cursor-pointer' onClick={() => navigate('/login')}>Please Login</span></p>
             </form>
 
 

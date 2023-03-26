@@ -7,9 +7,12 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import Contact from "../pages/Contact/Contact";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
+import AddNews from '../pages/Dashboard/AddNews';
 
 const router = createBrowserRouter([
   {
@@ -59,7 +62,29 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <DashboardLayout></DashboardLayout>
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
+      },
+      {
+        path: '/dashboard/add-news',
+        element: <AddNews />
+      },
+      {
+        path: '/dashboard/news',
+        element: <AddNews />
+      },
+      {
+        path: '/dashboard/add-project',
+        element: <AddNews />
+      },
+      {
+        path: '/dashboard/projects',
+        element: <AddNews />
+      }
+    ]
   }
 ])
 

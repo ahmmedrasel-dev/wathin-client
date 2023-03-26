@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Loader from '../../components/Loader/Loader';
 import { AuthContext } from '../../context/UserContext';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,13 +19,19 @@ const Login = () => {
     const password = form.password.value;
 
     signInUser(email, password)
-      .then(result => {
+      .then(() => {
         form.reset();
+        toast.success('Login in Successfully!');
         navigate(from, { replace: true })
       })
       .catch(error => {
         console.log(error)
       })
+  }
+
+
+  if (!loading) {
+    return <Loader />
   }
 
   return (
@@ -33,7 +41,7 @@ const Login = () => {
           <h1 className='text-2xl uppercase'>Please Login Now</h1>
 
           <div className="card shadow-2xl bg-slate-100">
-            <form onSubmit={handleSubmit} className="card-body w-[500px]">
+            <form onSubmit={handleSubmit} className="card-body lg:w-[500px] w-full">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

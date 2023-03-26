@@ -1,38 +1,71 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import app from '../firebase/firebase.config';
 export const AuthContext = createContext();
 
-const auth = getAuth(app)
+
 
 const UserContext = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-  const createUser = (email, password) => {
-    setLoading(true)
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
+  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
 
-  const signInUser = (email, password) => {
-    setLoading(true)
-    return signInWithEmailAndPassword(auth, email, password)
-  }
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    const userId = localStorage.getItem('user_id');
+    try {
+      if (isLoggedIn) {
+        fetch(`http://localhost:5000/api/user/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+          .then(res => res.json())
+          .then(data => {
+            setUser(data);
+            setIsLoggedIn(true);
+          })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    if (storedToken) {
+      setToken(storedToken);
+      setIsLoggedIn(true);
+    }
+  }, [token]);
+
+  const signInUser = async (email, password) => {
+    const response = await fetch('http://localhost:5000/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+    if (response.status === 200) {
+      const { token, _id } = await response.json();
+      localStorage.setItem('token', token);
+      localStorage.setItem('user_id', _id);
+      setToken(token);
+      setIsLoggedIn(true);
+      setLoading(false);
+    }
+  };
 
   const logout = () => {
-    setLoading(true)
-    return signOut(auth)
-  }
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser);
-      setLoading(false);
-    })
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
+    setToken(null);
+    setIsLoggedIn(false);
+    setUser(null);
+    setLoading(false);
+    fetch('http://localhost:5000/api/logout', {
+      method: 'POST'
+    });
+  };
 
-    return () => {
-      unsubscribe()
-    }
-  }, [])
-  const authInfo = { user, createUser, signInUser, logout, loading };
+  const authInfo = { user, isLoggedIn, signInUser, logout, loading };
   return (
     <AuthContext.Provider value={authInfo}>
       {children}
