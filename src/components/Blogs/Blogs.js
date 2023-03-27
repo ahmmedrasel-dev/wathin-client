@@ -11,7 +11,7 @@ const Blogs = () => {
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
   useEffect(() => {
-    const url = `http://server.wathincompanyltd.com/api/news?page=${currentPage}&itemPerPage=${itemsPerPage}`;
+    const url = `https://server.wathincompanyltd.com/api/news?page=${currentPage}&itemPerPage=${itemsPerPage}`;
 
     const getData = async () => {
       const { data } = await axios.get(url);

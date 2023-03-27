@@ -11,7 +11,7 @@ const UserNews = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      const { data } = await axios.get(`http://server.wathincompanyltd.com/api/auth-news?author=${user.name}`, {
+      const { data } = await axios.get(`https://server.wathincompanyltd.com/api/auth-news?author=${user.name}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -22,7 +22,7 @@ const UserNews = () => {
   }, [user])
 
   const handleDelete = async (id) => {
-    const response = await axios.delete(`http://server.wathincompanyltd.com/api/news/${id}`, {
+    const response = await axios.delete(`https://server.wathincompanyltd.com/api/news/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -38,7 +38,7 @@ const UserNews = () => {
 
   return (
     <>
-      <h1 className='text-2xl uppercase font-bold py-4'>News List:</h1>
+      <h1 className='text-2xl uppercase font-bold py-4'>Project List:</h1>
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
           <thead>

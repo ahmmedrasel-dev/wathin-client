@@ -78,7 +78,7 @@ const CreateProject = () => {
       date: todayDate,
       author: user.name
     };
-    await axios.post('http://server.wathincompanyltd.com/api/create-project', projectData, {
+    await axios.post('https://server.wathincompanyltd.com/api/create-project', projectData, {
       headers: {
         Authorization: `Bearer ${token}`
       }

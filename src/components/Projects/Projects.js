@@ -16,7 +16,7 @@ const Projects = () => {
 
   useEffect(() => {
     const getProject = async () => {
-      const { data } = await axios.get('http://server.wathincompanyltd.com/api/projects');
+      const { data } = await axios.get('https://server.wathincompanyltd.com/api/projects');
       setProjects(data);
       setLoading(false)
     }

@@ -15,7 +15,7 @@ const Register = () => {
 
     const postUserDate = async () => {
       try {
-        const response = await axios.post('http://server.wathincompanyltd.com/api/register', {
+        const response = await axios.post('https://server.wathincompanyltd.com/api/register', {
           name, email, password
         })
         form.reset();

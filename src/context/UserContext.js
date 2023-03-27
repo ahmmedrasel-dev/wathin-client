@@ -14,7 +14,7 @@ const UserContext = ({ children }) => {
     const userId = localStorage.getItem('user_id');
     try {
       if (isLoggedIn) {
-        fetch(`http://server.wathincompanyltd.com/api/user/${userId}`, {
+        fetch(`https://server.wathincompanyltd.com/api/user/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -36,7 +36,7 @@ const UserContext = ({ children }) => {
   }, [token]);
 
   const signInUser = async (email, password) => {
-    const response = await fetch('http://server.wathincompanyltd.com/api/login', {
+    const response = await fetch('https://server.wathincompanyltd.com/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const UserContext = ({ children }) => {
     setIsLoggedIn(false);
     setUser(null);
     setLoading(false);
-    fetch('http://server.wathincompanyltd.com/api/logout', {
+    fetch('https://server.wathincompanyltd.com/api/logout', {
       method: 'POST'
     });
   };
