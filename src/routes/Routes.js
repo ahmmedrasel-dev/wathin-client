@@ -8,11 +8,14 @@ import Main from "../layout/Main";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import Contact from "../pages/Contact/Contact";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import AddNews from "../pages/Dashboard/News/AddNews";
+import UserNews from "../pages/Dashboard/News/UserNews";
+import AllProjects from "../pages/Dashboard/Projects/AllProjects";
+import CreateProject from "../pages/Dashboard/Projects/CreateProject";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
-import AddNews from '../pages/Dashboard/AddNews';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        loader: async () => fetch('https://wathin-server.vercel.app/news'),
         element: <Home></Home>
       },
       {
@@ -34,7 +36,6 @@ const router = createBrowserRouter([
       },
       {
         path: '/news',
-        loader: async () => fetch('https://wathin-server.vercel.app/news'),
         element: <Blogs></Blogs>,
       },
       {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/news/:slug',
-        loader: async ({ params }) => fetch(`https://wathin-server.vercel.app/news/${params.slug}`),
+        loader: async ({ params }) => fetch(`http://localhost:5000/api/news/${params.slug}`),
         element: <BlogDetails></BlogDetails>
       },
       {
@@ -74,15 +75,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/news',
-        element: <AddNews />
+        element: <UserNews />
       },
       {
         path: '/dashboard/add-project',
-        element: <AddNews />
+        element: <CreateProject />
       },
       {
         path: '/dashboard/projects',
-        element: <AddNews />
+        element: <AllProjects />
       }
     ]
   }

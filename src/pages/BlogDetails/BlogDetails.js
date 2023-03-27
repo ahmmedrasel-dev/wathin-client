@@ -5,7 +5,7 @@ import useTitle from '../../hooks/useTitle';
 const BlogDetails = () => {
   const news = useLoaderData();
   useTitle('News Details')
-  const { title, blog_thumbnail, date, author, blog_details } = news
+  const { title, imageUrl, date, author, content } = news
   return (
     <section className='bg-white'>
       <div className='flex justify-between lg:px-20 lg:py-10 bg-slate-300'>
@@ -23,14 +23,14 @@ const BlogDetails = () => {
         <div className='flex justify-between gap-6'>
           <div className="md:w-[75%]">
             <div className='w-full h-[500px]'>
-              <img className='w-full h-full' src={blog_thumbnail} alt="" />
+              <img className='w-full h-full' src={imageUrl} alt="" />
             </div>
             <div className='py-4'>
               <h1 className='text-3xl font-semibold'>{title}</h1>
               <small className='text-primary'>{author}</small>
             </div>
             <div className='mt-4'>
-              <p>{blog_details}</p>
+              <p dangerouslySetInnerHTML={{ __html: content }}></p>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ const BlogDetails = () => {
 
             <div className='flex justify-start gap-6 py-6'>
               <div className='bg-base-100 p-1 rounded-md'>
-                <img className='w-[60px] h-[60px] rounded-md shadow-md' src={blog_thumbnail} alt="" />
+                <img className='w-[60px] h-[60px] rounded-md shadow-md' src={imageUrl} alt="" />
               </div>
 
               <div>

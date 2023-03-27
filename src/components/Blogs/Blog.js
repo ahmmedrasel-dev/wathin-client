@@ -3,7 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { FaCaretRight } from 'react-icons/fa';
 
 const Blog = ({ blog }) => {
-  const { title, date, blog_thumbnail, blog_details, author, slug } = blog;
+
+  if (!blog) {
+    return null;
+  }
+  console.log(blog)
+
+  const { title, date, imageUrl, content, author, slug } = blog;
   const postDate = new Date(date);
   let day = (postDate.getDate().toString().length < 2 ? "0" + postDate.getDate().toString() : postDate.getDate());
   let month = postDate.toLocaleString('en-US', { month: 'short' })
@@ -11,7 +17,7 @@ const Blog = ({ blog }) => {
   return (
     <div>
       <div className='relative mb-8'>
-        <img src={blog_thumbnail} className="h-[300px] w-full" alt={title} />
+        <img src={imageUrl} className="h-[300px] w-full" alt={title} />
         <div className='bg-primary w-20 h-20 flex flex-col justify-center items-center absolute -bottom-8 left-4'>
           <span className='text-white text-2xl font-bold'>{day}</span>
           <span className='text-white font-semibold text-xl'>{month}</span>
@@ -22,7 +28,7 @@ const Blog = ({ blog }) => {
         <h2 className="text-xl font-semibold mb-2 text-secondary">
           {title}
         </h2>
-        <p className='leading-loose pb-2'>{blog_details.slice(0, 120)}</p>
+        <p dangerouslySetInnerHTML={{ __html: content.slice(0, 60) + ' ...' }}></p>
       </div>
       <div className='flex items-center pl-2'>
         <FaCaretRight className='text-primary text-xl' />

@@ -28,7 +28,7 @@ const Navlinks = () => {
           <>
             <li>
               <div className="dropdown dropdown-end hover:bg-[transparent]">
-                <button className='btn btn-error rounded-lg text-white ml-2 border-0'>{user && user.name}</button>
+                <button className='btn btn-outline rounded-lg ml-2 text-primary'>{user && user.name}</button>
                 <ul tabIndex={0} className="dropdown-content p-2 shadow-md bg-white border-2 border-slate-100 rounded-box w-52 top-[70px]">
                   <li><NavLink to='/dashboard' className='rounded-lg w-full text-secondary mb-2'>Dashboard</NavLink></li>
                   <li><NavLink onClick={handleSignOut} className='rounded-lg text-white bg-error w-full text-center'>Log out</NavLink></li>

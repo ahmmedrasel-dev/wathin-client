@@ -8,22 +8,26 @@ import 'swiper/css';
 import './project.css'
 import useTitle from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
+import axios from 'axios';
 const Projects = () => {
-  const { loading, setLoading } = useState(true)
+  const [loading, setLoading] = useState(true)
   const [projects, setProjects] = useState([]);
   useTitle('Projects')
+
   useEffect(() => {
-    fetch('projects.json')
-      .then(res => res.json())
-      .then(data => {
-        setProjects(data)
-        setLoading(false)
-      })
+    const getProject = async () => {
+      const { data } = await axios.get('http://localhost:5000/api/projects');
+      setProjects(data);
+      setLoading(false)
+    }
+    getProject();
   }, [])
+
 
   if (loading) {
     return <Loader />
   }
+
   return (
     <div className='pt-20 pb-6 lg:px-0 px-4'>
       <div className='text-center pb-12'>

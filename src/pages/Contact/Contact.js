@@ -6,7 +6,7 @@ const Contact = () => {
   useTitle('Contact')
 
   return (
-    <div>
+    <>
       <div className="w-full bg-slate-200 mx-auto lg:p-20 p-4">
         <div className="flex-col">
           <div className='grid mb-20 lg:grid-cols-3 gap-8 grid-cols-1 justify-center'>
@@ -71,7 +71,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

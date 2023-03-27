@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
+import { BsArrowRight } from 'react-icons/bs';
+import { FaNewspaper } from 'react-icons/fa';
 import { Outlet, NavLink } from 'react-router-dom';
 import Navbar from '../pages/Shared/Navbar';
 import Navlinks from '../pages/Shared/Navlinks';
@@ -34,12 +36,33 @@ const DashboardLayout = () => {
             </div>
             <div className="drawer-side">
               <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+
               <ul className="dashboar p-2 bg-slate-200" style={{ width: '300px' }}>
                 {/* <!-- Sidebar content here --> */}
-                <li className="py-3 px-4 cursor-pointer hover:bg-slate-100 m-2 rounded-md "><NavLink to="/dashboard/add-news">Add News</NavLink></li>
-                <li className="py-3 px-4 cursor-pointer hover:bg-slate-100 m-2 rounded-md "><NavLink to="/news">All News</NavLink></li>
-                <li className="py-3 px-4 cursor-pointer hover:bg-slate-100 m-2 rounded-md "><NavLink to="/add-projects">Add Project</NavLink></li>
-                <li className="py-3 px-4 cursor-pointer hover:bg-slate-100 m-2 rounded-md "><NavLink to="/projects">All Projects</NavLink></li>
+
+                <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
+                  <div className='flex justify-start items-center gap-4 btn'>
+                    <FaNewspaper className='text-2xl' />
+                    <span>News</span>
+                  </div>
+                  <div className='flex flex-col pl-10 gap-2 mt-4'>
+                    <NavLink className="flex items-center gap-2" to="/dashboard/add-news"><span><BsArrowRight /></span><span>Add News</span></NavLink>
+                    <NavLink className="flex items-center gap-2" to="/dashboard/news"><span><BsArrowRight /></span><span>News</span></NavLink>
+                  </div>
+                </li>
+
+                <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
+                  <div className='flex justify-start items-center gap-4 btn'>
+                    <FaNewspaper className='text-2xl' />
+                    <span>Projects</span>
+                  </div>
+                  <div className='flex flex-col pl-10 gap-2 mt-4'>
+                    <NavLink className="flex items-center gap-2" to="/dashboard/add-project"><span><BsArrowRight /></span><span>Add Project</span></NavLink>
+                    <NavLink className="flex items-center gap-2" to="/dashboard/projects"><span><BsArrowRight /></span><span>Projects</span></NavLink>
+                  </div>
+                </li>
+
+                <li className="py-3 px-4 cursor-pointer hover:bg-slate-100 m-2 rounded-md "><NavLink to="/projects">All Users</NavLink></li>
               </ul>
             </div>
           </div>
