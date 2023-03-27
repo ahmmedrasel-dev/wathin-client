@@ -79,7 +79,7 @@ const AddNews = () => {
       date: todayDate,
       author: user.name
     };
-    await axios.post('http://localhost:5000/api/add-news', newsData, {
+    await axios.post('http://server.wathincompanyltd.com/api/add-news', newsData, {
       headers: {
         Authorization: `Bearer ${token}`
       }

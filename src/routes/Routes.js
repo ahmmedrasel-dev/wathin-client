@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/news/:slug',
-        loader: async ({ params }) => fetch(`http://localhost:5000/api/news/${params.slug}`),
+        loader: async ({ params }) => fetch(`http://server.wathincompanyltd.com/api/news/${params.slug}`),
         element: <BlogDetails></BlogDetails>
       },
       {

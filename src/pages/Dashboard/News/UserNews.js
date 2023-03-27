@@ -11,7 +11,7 @@ const UserNews = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      const { data } = await axios.get(`http://localhost:5000/api/auth-news?author=${user.name}`, {
+      const { data } = await axios.get(`http://server.wathincompanyltd.com/api/auth-news?author=${user.name}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -22,7 +22,7 @@ const UserNews = () => {
   }, [user])
 
   const handleDelete = async (id) => {
-    const response = await axios.delete(`http://localhost:5000/api/news/${id}`, {
+    const response = await axios.delete(`http://server.wathincompanyltd.com/api/news/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
