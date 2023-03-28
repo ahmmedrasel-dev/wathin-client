@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-import { FaNewspaper } from 'react-icons/fa';
+import { FaNewspaper, FaUsers } from 'react-icons/fa';
 import { Outlet, NavLink } from 'react-router-dom';
 import Navbar from '../pages/Shared/Navbar';
 import Navlinks from '../pages/Shared/Navlinks';
@@ -42,6 +42,16 @@ const DashboardLayout = () => {
 
                 <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
                   <div className='flex justify-start items-center gap-4 btn'>
+                    <FaUsers className='text-2xl' />
+                    <span>Users</span>
+                  </div>
+                  <div className='flex flex-col pl-10 gap-2 mt-4'>
+                    <NavLink className="flex items-center gap-2" to="/dashboard/users"><span><BsArrowRight /></span><span>Users</span></NavLink>
+                  </div>
+                </li>
+
+                <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
+                  <div className='flex justify-start items-center gap-4 btn'>
                     <FaNewspaper className='text-2xl' />
                     <span>News</span>
                   </div>
@@ -62,7 +72,6 @@ const DashboardLayout = () => {
                   </div>
                 </li>
 
-                <li className="py-3 px-4 cursor-pointer hover:bg-slate-100 m-2 rounded-md "><NavLink to="/projects">All Users</NavLink></li>
               </ul>
             </div>
           </div>

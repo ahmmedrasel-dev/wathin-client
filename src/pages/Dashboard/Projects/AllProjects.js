@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import Loader from '../../../components/Loader/Loader';
 import { AuthContext } from '../../../context/UserContext';
 
 const AllProjects = () => {
   const [projects, setProjects] = useState([]);
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getNews = async () => {
@@ -17,6 +17,7 @@ const AllProjects = () => {
         }
       });
       setProjects(data)
+      setLoading(false)
     }
     getNews();
   }, [user])
@@ -34,6 +35,9 @@ const AllProjects = () => {
     }
   }
 
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <>

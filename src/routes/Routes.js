@@ -12,6 +12,7 @@ import AddNews from "../pages/Dashboard/News/AddNews";
 import UserNews from "../pages/Dashboard/News/UserNews";
 import AllProjects from "../pages/Dashboard/Projects/AllProjects";
 import CreateProject from "../pages/Dashboard/Projects/CreateProject";
+import Users from "../pages/Dashboard/Users/Users";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/projects',
         element: <AllProjects />
+      },
+      {
+        path: '/dashboard/users',
+        element: <Users />
       }
     ]
   }
