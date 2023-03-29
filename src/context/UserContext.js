@@ -23,6 +23,7 @@ const UserContext = ({ children }) => {
           .then(data => {
             setUser(data);
             setIsLoggedIn(true);
+            setLoading(false)
           })
       }
     } catch (error) {
@@ -49,7 +50,6 @@ const UserContext = ({ children }) => {
       localStorage.setItem('user_id', _id);
       setToken(token);
       setIsLoggedIn(true);
-      setLoading(false);
     }
   };
 
@@ -65,7 +65,7 @@ const UserContext = ({ children }) => {
     });
   };
 
-  const authInfo = { user, isLoggedIn, signInUser, logout, loading };
+  const authInfo = { user, isLoggedIn, signInUser, logout, loading, setIsLoggedIn, setLoading };
   return (
     <AuthContext.Provider value={authInfo}>
       {children}

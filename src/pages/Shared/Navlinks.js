@@ -2,11 +2,11 @@ import React from 'react';
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import useAdmin from '../../hooks/useAdmin';
 
 const Navlinks = () => {
   const navigate = useNavigate();
   const { isLoggedIn, logout, user } = useContext(AuthContext);
-
   const handleSignOut = () => {
     logout()
       .then(() => { })

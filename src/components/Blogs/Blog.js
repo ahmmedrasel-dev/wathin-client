@@ -7,7 +7,6 @@ const Blog = ({ blog }) => {
   if (!blog) {
     return null;
   }
-  console.log(blog)
 
   const { title, date, imageUrl, content, author, slug } = blog;
   const postDate = new Date(date);

@@ -1,27 +1,23 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import Loader from '../components/Loader/Loader';
 import { AuthContext } from '../context/UserContext';
+import useAdmin from '../hooks/useAdmin';
 
-const PrivateRoute = ({ children }) => {
-  const { user, isLoggedIn, setIsLoggedIn, loading, setLoading } = useContext(AuthContext);
+const AdminRoute = ({ children }) => {
+  const { user, isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
   const location = useLocation();
-
-  if (isLoggedIn && user) {
+  console.log(isAdmin)
+  if (isLoggedIn) {
     <Navigate to="/" />
   }
 
-
-  if (!user && !isLoggedIn) {
+  if (!user && !isLoggedIn && !isAdmin) {
     setIsLoggedIn(false)
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
-    setLoading(false)
     return <Navigate to="/login" state={{ from: location, search: location.search }}></Navigate>;
-  }
 
-  if (loading) {
-    return <Loader />
   }
   return children;
 
@@ -30,4 +26,4 @@ const PrivateRoute = ({ children }) => {
 };
 
 
-export default PrivateRoute;
+export default AdminRoute;

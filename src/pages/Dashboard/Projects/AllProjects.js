@@ -6,8 +6,7 @@ import { AuthContext } from '../../../context/UserContext';
 
 const AllProjects = () => {
   const [projects, setProjects] = useState([]);
-  const { user } = useContext(AuthContext);
-  const [loading, setLoading] = useState(true)
+  const { user, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
     const getNews = async () => {
@@ -22,6 +21,7 @@ const AllProjects = () => {
     getNews();
   }, [user])
 
+  console.log(projects)
   const handleDelete = async (id) => {
     const response = await axios.delete(`https://server.wathincompanyltd.com/api/project/${id}`, {
       headers: {
@@ -33,10 +33,6 @@ const AllProjects = () => {
       toast.error('Project Deleted Successfully!')
       setProjects(prevNews => prevNews.filter(item => item._id !== id))
     }
-  }
-
-  if (loading) {
-    return <Loader />
   }
 
   return (

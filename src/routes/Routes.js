@@ -16,6 +16,7 @@ import Users from "../pages/Dashboard/Users/Users";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -88,7 +89,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/users',
-        element: <Users />
+        element: <AdminRoute><Users /></AdminRoute>
       }
     ]
   }

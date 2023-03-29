@@ -31,7 +31,7 @@ const BlogDetails = () => {
 
 
   useEffect(() => {
-    const url = `http://localhost:5000/api/latest-news`;
+    const url = `https://server.wathincompanyltd.com/api/latest-news`;
     const getData = async () => {
       const { data } = await axios.get(url);
       setLatestNews(data)

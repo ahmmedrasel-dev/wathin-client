@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useRef } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import { FaNewspaper, FaUsers } from 'react-icons/fa';
 import { Outlet, NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/UserContext';
+import useAdmin from '../hooks/useAdmin';
 import Navbar from '../pages/Shared/Navbar';
 import Navlinks from '../pages/Shared/Navlinks';
 
@@ -10,6 +12,9 @@ const DashboardLayout = () => {
 
   const [isSticky, setIsSticky] = useState(false);
   const scrollRef = useRef(null);
+  const { user } = useContext(AuthContext)
+
+  const [isAdmin] = useAdmin(user?.email)
 
   const handleScroll = () => {
     const scrollTop = scrollRef.current.scrollTop;
@@ -40,15 +45,18 @@ const DashboardLayout = () => {
               <ul className="dashboar p-2 bg-slate-200" style={{ width: '300px' }}>
                 {/* <!-- Sidebar content here --> */}
 
-                <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
-                  <div className='flex justify-start items-center gap-4 btn'>
-                    <FaUsers className='text-2xl' />
-                    <span>Users</span>
-                  </div>
-                  <div className='flex flex-col pl-10 gap-2 mt-4'>
-                    <NavLink className="flex items-center gap-2" to="/dashboard/users"><span><BsArrowRight /></span><span>Users</span></NavLink>
-                  </div>
-                </li>
+                {
+                  isAdmin && <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
+                    <div className='flex justify-start items-center gap-4 btn'>
+                      <FaUsers className='text-2xl' />
+                      <span>Users</span>
+                    </div>
+                    <div className='flex flex-col pl-10 gap-2 mt-4'>
+                      <NavLink className="flex items-center gap-2" to="/dashboard/users"><span><BsArrowRight /></span><span>Users</span></NavLink>
+                    </div>
+                  </li>
+                }
+
 
                 <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
                   <div className='flex justify-start items-center gap-4 btn'>

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Loader from '../../components/Loader/Loader';
 import { AuthContext } from '../../context/UserContext';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-  const { signInUser, loading } = useContext(AuthContext);
+  const { signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,10 +28,6 @@ const Login = () => {
       })
   }
 
-
-  if (!loading) {
-    return <Loader />
-  }
 
   return (
     <>
