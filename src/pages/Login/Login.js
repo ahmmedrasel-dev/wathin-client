@@ -11,21 +11,28 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || '/';
   useTitle('Login')
-  const handleSubmit = e => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    signInUser(email, password)
-      .then(() => {
-        form.reset();
-        toast.success('Login in Successfully!');
-        navigate(from, { replace: true })
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    // Check if email and password are provided
+    if (!email || !password) {
+      toast.error('Please provide email and password');
+      return;
+    }
+
+    try {
+      await signInUser(email, password);
+      form.reset();
+      toast.success('Login Successfully!');
+      navigate(from, { replace: true });
+    } catch (error) {
+      toast.error(error.message);
+    }
+
   }
 
 

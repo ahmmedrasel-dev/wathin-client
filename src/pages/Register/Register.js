@@ -6,29 +6,48 @@ import useTitle from '../../hooks/useTitle';
 const Register = () => {
   const navigate = useNavigate();
   useTitle('Register')
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     const name = form.name.value;
 
-    const postUserDate = async () => {
-      try {
-        const response = await axios.post('https://server.wathincompanyltd.com/api/register', {
-          name, email, password
-        })
-        form.reset();
-        if (response.status === 200) {
-          toast.success(response.data.message);
-          navigate('/login')
-        }
-
-      } catch (error) {
-
-      }
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email');
+      return;
     }
-    postUserDate();
+
+    // Validate name
+    if (!name.trim()) {
+      toast.error('Please enter your name');
+      return;
+    }
+
+    // Validate password
+    if (password.length < 8) {
+      toast.error('Password must be at least 6 characters long');
+      return;
+    }
+
+    // Send data to server
+    try {
+      const response = await axios.post('https://server.wathincompanyltd.com/api/register', {
+        name, email, password
+      })
+
+      console.log(response)
+
+      if (response.status === 200) {
+        toast.success(response.data.message);
+        form.reset();
+        navigate('/login')
+      }
+    } catch (error) {
+      toast.error('Failed to register, please try again');
+    }
 
   }
   return (

@@ -36,22 +36,34 @@ const UserContext = ({ children }) => {
     }
   }, [token]);
 
+
   const signInUser = async (email, password) => {
-    const response = await fetch('https://server.wathincompanyltd.com/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    });
-    if (response.status === 200) {
-      const { token, _id } = await response.json();
-      localStorage.setItem('token', token);
-      localStorage.setItem('user_id', _id);
-      setToken(token);
-      setIsLoggedIn(true);
+    try {
+      const response = await fetch('https://server.wathincompanyltd.com/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.status === 200) {
+        const { token, _id } = await response.json();
+        localStorage.setItem('token', token);
+        localStorage.setItem('user_id', _id);
+        setToken(token);
+        setIsLoggedIn(true);
+      } else if (response.status === 401) {
+        const { message } = await response.json();
+        throw new Error(message);
+      } else {
+        throw new Error('An error occurred while logging in');
+      }
+    } catch (error) {
+      throw error;
     }
   };
+
 
   const logout = () => {
     localStorage.removeItem('token');
