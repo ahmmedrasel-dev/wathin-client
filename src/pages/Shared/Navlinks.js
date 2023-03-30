@@ -1,12 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import useAdmin from '../../hooks/useAdmin';
 
 const Navlinks = () => {
-  const navigate = useNavigate();
   const { isLoggedIn, logout, user } = useContext(AuthContext);
+  const { isAdmin } = useAdmin(user?.email)
   const handleSignOut = () => {
     logout()
       .then(() => { })
@@ -24,20 +24,20 @@ const Navlinks = () => {
       <li><NavLink to='/news' className='rounded-lg text-[#11374d] mx-2'>News</NavLink></li>
       <li><NavLink to='/contact' className='rounded-lg text-secondary'>Contact Us</NavLink></li>
       {
-        isLoggedIn ?
-          <>
-            <li>
-              <div className="dropdown dropdown-end hover:bg-[transparent]">
-                <button className='btn btn-outline rounded-lg ml-2 text-primary'>{user && user.name}</button>
-                <ul tabIndex={0} className="dropdown-content p-2 shadow-md bg-white border-2 border-slate-100 rounded-box w-52 top-[70px]">
-                  <li><NavLink to='/dashboard' className='rounded-lg w-full text-secondary mb-2'>Dashboard</NavLink></li>
-                  <li><NavLink onClick={handleSignOut} className='rounded-lg text-white bg-error w-full text-center'>Log out</NavLink></li>
-                </ul>
-              </div>
-            </li>
-          </>
-          :
-          <li><button className='btn btn-warning rounded-lg text-white ml-2 border-0' onClick={() => navigate('/login')}>Login</button></li>
+        isLoggedIn &&
+        <>
+          <li>
+            <div className="dropdown dropdown-end hover:bg-[transparent]">
+              <button className='btn btn-outline rounded-lg ml-2 text-primary'>{user && user.name}</button>
+              <ul tabIndex={0} className="dropdown-content p-2 shadow-md bg-white border-2 border-slate-100 rounded-box w-52 top-[70px]">
+                {
+                  isAdmin && <li><NavLink to='/dashboard' className='rounded-lg w-full text-secondary mb-2'>Dashboard</NavLink></li>
+                }
+                <li><NavLink onClick={handleSignOut} className='rounded-lg text-white bg-error w-full text-center'>Log out</NavLink></li>
+              </ul>
+            </div>
+          </li>
+        </>
       }
 
     </>

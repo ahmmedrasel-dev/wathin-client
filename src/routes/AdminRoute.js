@@ -12,17 +12,13 @@ const AdminRoute = ({ children }) => {
     <Navigate to="/" />
   }
 
-  if (!user && !isLoggedIn && !isAdmin) {
-    setIsLoggedIn(false)
-    localStorage.removeItem('token');
-    localStorage.removeItem('user_id');
-    return <Navigate to="/login" state={{ from: location, search: location.search }}></Navigate>;
-
+  if (user && isLoggedIn && isAdmin) {
+    return children;
   }
-  return children;
-
-
-
+  setIsLoggedIn(false)
+  localStorage.removeItem('token');
+  localStorage.removeItem('user_id');
+  return <Navigate to="/login" state={{ from: location, search: location.search }}></Navigate>;
 };
 
 

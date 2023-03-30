@@ -69,23 +69,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <AdminRoute><Dashboard></Dashboard></AdminRoute>
       },
       {
         path: '/dashboard/add-news',
-        element: <AddNews />
+        element: <AdminRoute><AddNews /></AdminRoute>
+      },
+      {
+        path: '/dashboard/edit-news',
+        element: <AdminRoute><AddNews /></AdminRoute>
       },
       {
         path: '/dashboard/news',
-        element: <UserNews />
+        element: <AdminRoute><UserNews /></AdminRoute>
       },
       {
         path: '/dashboard/add-project',
-        element: <CreateProject />
+        element: <AdminRoute><CreateProject /></AdminRoute>
+      },
+      {
+        path: '/dashboard/edit-project',
+        element: <AdminRoute><CreateProject /></AdminRoute>
       },
       {
         path: '/dashboard/projects',
-        element: <AllProjects />
+        element: <AdminRoute><AllProjects /></AdminRoute>
       },
       {
         path: '/dashboard/users',

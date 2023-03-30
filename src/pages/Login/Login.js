@@ -5,13 +5,13 @@ import { AuthContext } from '../../context/UserContext';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+  useTitle('Login')
   const { signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
-  useTitle('Login')
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -48,18 +48,18 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                <input type="email" name='email' placeholder="Your Email" className="input input-bordered" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                <input type="password" name='password' placeholder="Your Password" className="input input-bordered" />
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary" type='submit'>Login</button>
               </div>
-              <p>New to Wathin? <span className='text-primary cursor-pointer' onClick={() => navigate('/register')}>Create new account</span></p>
+              <p className='text-center'>New to Wathin? <span className='text-primary cursor-pointer font-semibold' onClick={() => navigate('/register')}>Create New Account</span></p>
             </form>
 
 

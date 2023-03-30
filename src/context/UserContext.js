@@ -8,10 +8,10 @@ const UserContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  const storedToken = localStorage.getItem('token');
+  const userId = localStorage.getItem('user_id');
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    const userId = localStorage.getItem('user_id');
     try {
       if (isLoggedIn) {
         fetch(`https://server.wathincompanyltd.com/api/user/${userId}`, {

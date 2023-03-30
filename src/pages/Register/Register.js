@@ -68,22 +68,20 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                <input type="email" name='email' placeholder="Your Email" className="input input-bordered" />
               </div>
 
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                <input type="password" name='password' placeholder="Your Password" className="input input-bordered" />
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary" type='submit'>Register</button>
               </div>
-              <p>Already Have an Account? <span className='text-primary cursor-pointer' onClick={() => navigate('/login')}>Please Login</span></p>
+              <p className='text-center'>Already Have An Account? <span className='text-primary cursor-pointer  font-semibold' onClick={() => navigate('/login')}>Please Login</span></p>
             </form>
-
-
           </div>
         </div>
       </div>
