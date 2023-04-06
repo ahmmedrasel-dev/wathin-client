@@ -10,11 +10,7 @@ const AllProjects = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      const { data } = await axios.get(`https://server.wathincompanyltd.com/api/auth-project?author=${user.name}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      });
+      const { data } = await axios.get(`https://server.wathincompanyltd.com/api/projects`);
       setProjects(data)
       setLoading(false)
     }

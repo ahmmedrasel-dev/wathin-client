@@ -29,9 +29,12 @@ const Projects = () => {
   }
 
   return (
-    <div className='pt-20 pb-6 lg:px-0 px-4'>
+    <div className='xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md w-full mx-auto pt-20 pb-6 lg:px-10 px-4'>
       <div className='text-center pb-12'>
-        <p className='uppercase text-3xl font-semibold'>Our <span className='text-[#42afef]'>Projects</span></p>
+        <p className='uppercase text-3xl font-semibold title'>Our <span className='text-[#42afef]'>Projects</span></p>
+
+        <p className='mt-6 lg:px-40'>Since we started the company in 2016 till date we have associated with various companies and successfully completed many
+          projects. MACC, ICAD and MbL are one of them. After completing the projects satisfaction level form clients are 4.5 out of 5.</p>
       </div>
 
       <Swiper
@@ -40,6 +43,7 @@ const Projects = () => {
           prevEl: '.swiper-button-prev',
         }}
         modules={[Navigation]}
+        spaceBetween={30}
         slidesPerView={3}
         breakpoints={{
           1100: {

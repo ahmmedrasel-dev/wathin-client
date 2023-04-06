@@ -1,10 +1,10 @@
 import React from 'react';
-import Blogs from '../../components/Blogs/Blogs';
 import Features from '../../components/Features/Features';
 import Projects from '../../components/Projects/Projects';
 import Services from '../../components/services/Services';
 import HomeSlider from '../../components/Slider/HomeSlider';
 import useTitle from '../../hooks/useTitle';
+import Contact from '../Contact/Contact';
 
 
 const Home = () => {
@@ -16,7 +16,8 @@ const Home = () => {
       <Features></Features>
       <Services></Services>
       <Projects></Projects>
-      <Blogs></Blogs>
+      <Contact></Contact>
+      {/* <Blogs></Blogs> */}
     </main>
   );
 };

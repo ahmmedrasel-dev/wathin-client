@@ -17,3 +17,7 @@ header {
 .drawer-side .menu {
 	width: 80%;
 }
+
+.menu .active {
+	color: #fff;
+}

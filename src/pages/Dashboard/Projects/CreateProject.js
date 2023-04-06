@@ -3,39 +3,24 @@ import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { BsUpload } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
-import ReactQuill from 'react-quill';
 import { AuthContext } from '../../../context/UserContext';
 
 const CreateProject = () => {
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
+  const [completeTime, setCompleteTime] = useState('');
   const [previewImage, setPreveiwImage] = useState(null);
   const [image, setImage] = useState(null);
-  const [projectDetails, setProjectDetails] = useState('');
   const { user } = useContext(AuthContext);
-
-
-  const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ 'align': [] }],
-      [{ 'color': [] }, { 'background': [] }],
-      ['blockquote', 'code-block'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-      ['link', 'image', 'video'],
-      [{ 'script': 'sub' }, { 'script': 'super' }],
-      [{ 'direction': 'rtl' }, { 'align': [] }],
-      ['clean']
-    ]
-  };
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
     createSlug(event.target.value)
   };
 
-
+  const handleCompleteTime = (event) => {
+    setCompleteTime(event.target.value);
+  }
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -74,7 +59,7 @@ const CreateProject = () => {
       title,
       slug,
       projectImage,
-      projectDetails,
+      completeTime,
       date: todayDate,
       author: user.name
     };
@@ -88,7 +73,7 @@ const CreateProject = () => {
     setTitle('');
     setSlug('');
     setPreveiwImage(null);
-    setProjectDetails('');
+    setCompleteTime('');
   };
 
 
@@ -180,23 +165,15 @@ const CreateProject = () => {
 
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Project Deteials:</span>
+                    <span className="label-text">Project Complete Time:</span>
                   </label>
-                  <div>
-                    <style>{`
-        .ql-editor {
-          height: 300px;
-        }
-      `}</style>
-
-                    <ReactQuill
-                      theme="snow"
-                      value={projectDetails}
-                      onChange={setProjectDetails}
-                      modules={modules}
-                      placeholder="Write you post..."
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    placeholder="Project Completed Time"
+                    className="input input-bordered"
+                    value={completeTime}
+                    onChange={handleCompleteTime}
+                  />
                 </div>
 
                 <div className="form-control mt-6">

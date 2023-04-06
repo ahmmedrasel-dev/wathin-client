@@ -1,12 +1,25 @@
-import React from 'react';
-import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useRef, useContext, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
-import useAdmin from '../../hooks/useAdmin';
+import { FaCaretDown } from 'react-icons/fa';
 
 const Navlinks = () => {
   const { isLoggedIn, logout, user } = useContext(AuthContext);
-  const { isAdmin } = useAdmin(user?.email)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [dropdownRef]);
+
   const handleSignOut = () => {
     logout()
       .then(() => { })
@@ -15,27 +28,28 @@ const Navlinks = () => {
       })
   }
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <>
       <li><NavLink to='/' className='rounded-lg text-secondary mr-2'>Home</NavLink></li>
       <li><NavLink to='/about' className='rounded-lg text-[#11374d]'>About</NavLink></li>
       <li><NavLink to='/services' className='rounded-lg text-[#11374d] mx-2'>Services</NavLink></li>
       <li><NavLink to='/projects' className='rounded-lg text-[#11374d]'>All Projects</NavLink></li>
-      <li><NavLink to='/news' className='rounded-lg text-[#11374d] mx-2'>News</NavLink></li>
       <li><NavLink to='/contact' className='rounded-lg text-secondary'>Contact Us</NavLink></li>
       {
         isLoggedIn &&
         <>
-          <li>
-            <div className="dropdown dropdown-end hover:bg-[transparent]">
-              <button className='btn btn-outline rounded-lg ml-2 text-primary'>{user && user.name}</button>
-              <ul tabIndex={0} className="dropdown-content p-2 shadow-md bg-white border-2 border-slate-100 rounded-box w-52 top-[70px]">
-                {
-                  isAdmin && <li><NavLink to='/dashboard' className='rounded-lg w-full text-secondary mb-2'>Dashboard</NavLink></li>
-                }
-                <li><NavLink onClick={handleSignOut} className='rounded-lg text-white bg-error w-full text-center'>Log out</NavLink></li>
-              </ul>
-            </div>
+          <li className="relative" ref={dropdownRef}>
+            <button className="text-black" onClick={toggleDropdown}>
+              {user?.name} <FaCaretDown />
+            </button>
+            <ul className={`absolute z-50 bg-white rounded-md shadow-md p-2 ${isDropdownOpen ? 'block' : 'hidden'}`}>
+              <li><NavLink to="/dashboard" className='rounded-lg text-secondary'>Dashboard</NavLink></li>
+              <li><button className='rounded-lg text-secondary' onClick={handleSignOut}>Logout</button></li>
+            </ul>
           </li>
         </>
       }

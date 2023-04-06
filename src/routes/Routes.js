@@ -18,6 +18,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import EditProject from "../pages/Dashboard/Projects/EditProject";
 
 const router = createBrowserRouter([
   {
@@ -65,39 +66,39 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    element: <DashboardLayout></DashboardLayout>,
     children: [
       {
         path: '/dashboard',
-        element: <AdminRoute><Dashboard></Dashboard></AdminRoute>
+        element: <Dashboard></Dashboard>
       },
       {
         path: '/dashboard/add-news',
-        element: <AdminRoute><AddNews /></AdminRoute>
+        element: <AddNews />
       },
       {
         path: '/dashboard/edit-news',
-        element: <AdminRoute><AddNews /></AdminRoute>
+        element: <AddNews />
       },
       {
         path: '/dashboard/news',
-        element: <AdminRoute><UserNews /></AdminRoute>
+        element: <UserNews />
       },
       {
         path: '/dashboard/add-project',
-        element: <AdminRoute><CreateProject /></AdminRoute>
+        element: <PrivateRoute><CreateProject /></PrivateRoute>
       },
       {
         path: '/dashboard/edit-project',
-        element: <AdminRoute><CreateProject /></AdminRoute>
+        element: <PrivateRoute><EditProject /></PrivateRoute>
       },
       {
         path: '/dashboard/projects',
-        element: <AdminRoute><AllProjects /></AdminRoute>
+        element: <PrivateRoute><AllProjects /></PrivateRoute>
       },
       {
         path: '/dashboard/users',
-        element: <AdminRoute><Users /></AdminRoute>
+        element: <PrivateRoute><Users /></PrivateRoute>
       }
     ]
   }

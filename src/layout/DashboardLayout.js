@@ -58,7 +58,7 @@ const DashboardLayout = () => {
                 }
 
 
-                <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
+                {/* <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
                   <div className='flex justify-start items-center gap-4 btn'>
                     <FaNewspaper className='text-2xl' />
                     <span>News</span>
@@ -68,7 +68,7 @@ const DashboardLayout = () => {
                     <NavLink className="flex items-center gap-2" to="/dashboard/edit-news"><span><BsArrowRight /></span><span>Edit News</span></NavLink>
                     <NavLink className="flex items-center gap-2" to="/dashboard/news"><span><BsArrowRight /></span><span>News</span></NavLink>
                   </div>
-                </li>
+                </li> */}
 
                 <li className="py-3 px-2 cursor-pointer hover:bg-slate-100 m-2 rounded-md ">
                   <div className='flex justify-start items-center gap-4 btn'>
