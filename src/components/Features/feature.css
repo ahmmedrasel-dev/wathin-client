@@ -12,3 +12,13 @@
 	left: 0;
 	bottom: 0;
 }
+
+.feature_img {
+	position: relative;
+}
+
+.feature_img img {
+	position: absolute;
+	right: -200px;
+	top: -250px;
+}

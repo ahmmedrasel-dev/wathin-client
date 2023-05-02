@@ -30,9 +30,9 @@ const HomeSlider = () => {
         <SwiperSlide>
           <div className="overlay">
             <img className='h-full w-full relative z-[-1]' src={slider2} alt="Slider-1" />
-            <div className='absolute w-[60%] top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center'>
+            <div className='absolute lg:w-[70%] w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center'>
               <div className="text-center slider-inside-content">
-                <p className='lg:py-4 hidden lg:block lg:text-3xl text-white'>GROW YOUR BUSINESS WITH SKILLED AND QUALIFIED<br />
+                <p className='lg:py-4 lg:text-3xl text-white lg:leading-[3rem]'>GROW YOUR BUSINESS WITH SKILLED AND QUALIFIED<br />
                   <span className='text-primary'>MANPOWER</span> IN YOUR CONSTRUCTION SITE</p>
               </div>
               <button className='btn btn-primary text-white btn-md lg:btn-lg mt-10'> Explore More</button>
@@ -45,10 +45,10 @@ const HomeSlider = () => {
 
           <div className="overlay">
             <img className='h-full w-full relative z-[-1]' src={slider3} alt="Slider-1" />
-            <div className='absolute w-[60%] top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center'>
+            <div className='absolute lg:w-[70%] w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center'>
               <div className="text-center slider-inside-content">
-                <p className='lg:py-4 hidden lg:block lg:text-3xl text-white'>GROW YOUR BUSINESS WITH SKILLED AND QUALIFIED<br />
-                  <span className='text-primary'>MANPOWER</span> IN YOUR CONSTRUCTION SITE</p>
+                <p className='lg:py-4 lg:text-3xl uppercase text-white lg:leading-[4rem]'>build your vision with
+                  <span className='text-primary'> perfection</span></p>
               </div>
               <button className='btn btn-primary text-white btn-md lg:btn-lg mt-10'> Explore More</button>
             </div>

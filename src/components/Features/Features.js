@@ -11,12 +11,10 @@ const Features = () => {
         <p className='uppercase text-2xl font-semibold title'>Who We Are?</p>
       </div>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-4 items-center justify-between lg:px-32">
-        <div className=''>
-          <h2 className='text-xl font-bold'>WE BUILD STRONG BRANDS AND GROW YOUR
-            BUSINESSES THROUGH EXCELLENT <span className='text-primary'>MANPOWER</span>
-            SERVICES</h2>
-          <p className='mt-6'>
-            <span className='text-primary font-medium'>Wathin Company Ltd.</span> is one of the leading and reputed
+        <div className='text-justify'>
+          <h2 className='text-lg font-bold uppercase'> We Build Strong Brand and Grow your Business through excellent <span className='text-primary'>Manpower</span>Services.</h2>
+          <p className='mt-6 '>
+            <span className='text-primary font-medium leading-relaxed'>Wathin Company Ltd.</span> is one of the leading and reputed
             construction manpower company in Riyadh, KSA. The
             company committed to ensuring first class skilled manpower services to their clients The Company has 06
             years of experience into a professional construction
@@ -30,8 +28,8 @@ const Features = () => {
             AND SUDI UJAR.
           </p>
         </div>
-        <div>
-          <img className='w-full' src={building} alt="" />
+        <div className='feature_img'>
+          <img src={building} alt="" />
         </div>
       </div>
     </div>

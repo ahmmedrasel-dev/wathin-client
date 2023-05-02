@@ -77,18 +77,22 @@
 }
 
 .slide_next_btn {
-	right: 20px;
-	top: 50%;
+	right: 45%;
+	top: 95%;
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;
 }
 .slide_prev_btn {
-	left: 20px;
-	top: 50%;
+	left: 45%;
+	top: 95%;
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;
+}
+
+.project_main:hover::before {
+	background-color: #42afef;
 }
 /* 
 @media (max-width: 574px) {

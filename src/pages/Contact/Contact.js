@@ -7,14 +7,14 @@ const Contact = () => {
 
   return (
     <>
-      <div className="w-full bg-slate-200 mx-auto lg:p-20 p-4">
+      <div className="w-full bg-slate-200 mx-auto lg:py-20 lg:px-32 p-4">
         <div className="flex-col">
-          <div className="card lg:mx-24">
+          <div className="card">
             <div className="text-center px-12 mt-8">
               <p className='uppercase text-3xl font-semibold title'>Get In Touch</p>
             </div>
 
-            <div className="card-body px-20">
+            <div className="card-body px-16">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Full name</span>

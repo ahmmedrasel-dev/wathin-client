@@ -8,11 +8,11 @@ const Services = () => {
   useTitle('Services')
   return (
     <div className='bg-slate-300'>
-      <div className='xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md w-full mx-auto py-10 p-4'>
-        <div className='text-center pb-12'>
-          <p className='uppercase text-2xl font-semibold title'>Our Services</p>
+      <div className='xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md w-full mx-auto lg:py-10 lg:px-32 p-4'>
+        <div className='pb-12 text-center'>
+          <p className='uppercase text-2xl font-semibold title text-center'>Our Services</p>
 
-          <p className='text-md mt-10'>Skilled worker is a segment of the workforce that has specialized know-how, training, and experience to carry out more complex physical, or mental tasks than routine job functions. In today's industry, I believe it is crucial to have a skilled workforce in any industry. Because they are highly qualified and experienced, skilled individuals can help your business become more productive. Whereas more training for unskilled workers may be necessary, this somehow takes more time and money to up skill them. Discuss your company’s requirements with us, And we will provide you with advice you need to hear regarding the professional reinforcements to assist with the growth of your business..
+          <p className='text-md mt-10 skill_text'>Skilled worker is a segment of the workforce that has specialized know-how, training, and experience to carry out more complex physical, or mental tasks than routine job functions. In today's industry, I believe it is crucial to have a skilled workforce in any industry. Because they are highly qualified and experienced, skilled individuals can help your business become more productive. Whereas more training for unskilled workers may be necessary, this somehow takes more time and money to up skill them. Discuss your company’s requirements with us, And we will provide you with advice you need to hear regarding the professional reinforcements to assist with the growth of your business..
           </p>
         </div>
 
