@@ -1,13 +1,12 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import Loader from '../../../components/Loader/Loader';
 import { AuthContext } from '../../../context/UserContext';
+import { Link } from 'react-router-dom';
 
 const AllProjects = () => {
   const [projects, setProjects] = useState([]);
   const { user, setLoading } = useContext(AuthContext);
-
   useEffect(() => {
     const getNews = async () => {
       const { data } = await axios.get(`https://server.wathincompanyltd.com/api/projects`);
@@ -17,7 +16,6 @@ const AllProjects = () => {
     getNews();
   }, [user])
 
-  console.log(projects)
   const handleDelete = async (id) => {
     const response = await axios.delete(`https://server.wathincompanyltd.com/api/project/${id}`, {
       headers: {
@@ -57,7 +55,9 @@ const AllProjects = () => {
                 <td>{item.author}</td>
                 <td>{item.date}</td>
                 <td className=''>
+                  <Link to={`/dashboard/edit-project/${item.slug}`} className='btn btn-warning btn-sm' >Edit</Link>
                   <button className='btn btn-error btn-sm' onClick={() => handleDelete(item._id)} >Delete</button>
+
                 </td>
               </tr>)
             }

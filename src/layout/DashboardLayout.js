@@ -77,7 +77,6 @@ const DashboardLayout = () => {
                   </div>
                   <div className='flex flex-col pl-10 gap-2 mt-4'>
                     <NavLink className="flex items-center gap-2" to="/dashboard/add-project"><span><BsArrowRight /></span><span>Add Project</span></NavLink>
-                    <NavLink className="flex items-center gap-2" to="/dashboard/edit-project"><span><BsArrowRight /></span><span>Edit Project</span></NavLink>
                     <NavLink className="flex items-center gap-2" to="/dashboard/projects"><span><BsArrowRight /></span><span>Projects</span></NavLink>
                   </div>
                 </li>

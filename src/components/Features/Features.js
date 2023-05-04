@@ -16,7 +16,7 @@ const Features = () => {
           <p className='mt-6 '>
             <span className='text-primary font-medium leading-relaxed'>Wathin Company Ltd.</span> is one of the leading and reputed
             construction manpower company in Riyadh, KSA. The
-            company committed to ensuring first class skilled manpower services to their clients The Company has 06
+            company committed to ensuring first class skilled manpower services to their clients The Company has 21
             years of experience into a professional construction
             team that specializes in Foundations, heavy civil
             construction, Roads, Railway Tracks, and other related
@@ -24,8 +24,7 @@ const Features = () => {
             completed a good number of remarkable projects of
             various authorities in Saudi Arabia. The company is
             providing manpower in more than 10 locations across
-            the country such as MACC, ICAD, MBL, AL BAWANI, FIRST FIX
-            AND SUDI UJAR.
+            the country such as Saudi Oger Ltd, Drakę & Scull, AZMELL Co, Saudi Binladin Group, Essa Binladen, Aramco, Ném co, MMG, CCC, Al Sài Group, Arabtech EFCO, Setra, Temco, Al Murooj, Al Fayha, SK Co, Hyundai, MGL, AL Rabiah.
           </p>
         </div>
         <div className='feature_img'>

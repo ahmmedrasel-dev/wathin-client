@@ -16,7 +16,6 @@ import Users from "../pages/Dashboard/Users/Users";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import EditProject from "../pages/Dashboard/Projects/EditProject";
 
@@ -77,7 +76,7 @@ const router = createBrowserRouter([
         element: <AddNews />
       },
       {
-        path: '/dashboard/edit-news',
+        path: '/dashboard/edit-news/:id',
         element: <AddNews />
       },
       {
@@ -89,8 +88,9 @@ const router = createBrowserRouter([
         element: <PrivateRoute><CreateProject /></PrivateRoute>
       },
       {
-        path: '/dashboard/edit-project',
-        element: <PrivateRoute><EditProject /></PrivateRoute>
+        path: '/dashboard/edit-project/:slug',
+        element: <PrivateRoute><EditProject /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://server.wathincompanyltd.com/api/project/${params.slug}`)
       },
       {
         path: '/dashboard/projects',
