@@ -7,6 +7,7 @@ import './home.slider.css';
 import 'swiper/css';
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import { Link } from 'react-router-dom';
 
 
 const HomeSlider = () => {
@@ -35,7 +36,7 @@ const HomeSlider = () => {
                 <p className='lg:py-4 lg:text-3xl text-white lg:leading-[3rem]'>GROW YOUR BUSINESS WITH SKILLED AND QUALIFIED<br />
                   <span className='text-primary'>MANPOWER</span> IN YOUR CONSTRUCTION SITE</p>
               </div>
-              <button className='btn btn-primary text-white btn-md lg:btn-lg mt-10'> Explore More</button>
+              <Link to="/about"><button className='btn btn-primary text-white btn-md lg:btn-lg mt-10'> Explore More</button></Link>
             </div>
           </div>
 
@@ -50,7 +51,7 @@ const HomeSlider = () => {
                 <p className='lg:py-4 lg:text-3xl uppercase text-white lg:leading-[4rem]'>build your vision with
                   <span className='text-primary'> perfection</span></p>
               </div>
-              <button className='btn btn-primary text-white btn-md lg:btn-lg mt-10'> Explore More</button>
+              <Link to="/about"><button className='btn btn-primary text-white btn-md lg:btn-lg mt-10'> Explore More</button></Link>
             </div>
           </div>
 

@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/icons/logo.png'
 import { BsFillEnvelopeFill, BsInstagram, BsTelephoneFill } from 'react-icons/bs';
-import { BsFacebook } from 'react-icons/bs';
-import { AiFillTwitterCircle } from 'react-icons/ai';
 import { FaFacebook } from 'react-icons/fa';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
@@ -36,7 +34,7 @@ const Footer = () => {
         </div>
         <div>
           <span className="text-lg font-bold text-secondary">Contact Us</span>
-          <a href="phoneto:+966 053 908 3537" className='flex items-center gap-2'><BsTelephoneFill /> +966 053 908 3537</a>
+          <a href="phoneto:966558166323" className='flex items-center gap-2'><BsTelephoneFill /> 966 55 816 6323</a>
           <a href="mailto:wathin.mehedihasan@gmail.com" className='flex items-center gap-2'><BsFillEnvelopeFill />wathin.mehedihasan@gmail.com</a>
           <p>Al-Malaz Dist, King Abdul Aziz <br />
             Road, Riyadh. KSA</p>
